@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    :root{
+        --font-size:16px;
+    }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            font-size: var(--font-size);
+        }
+
+        .box {
+            height: 200px;
+            width: 400px;
+            background-color: teal;
+        }
+
+        .box.two {
+            background-color: azure;
+        }
+
+        .child {
+            width: 200px;
+            height: 200px;
+            background-color: beige;
+            display: inline-block;
+        }
+
+        .child:not(:first-child) {
+            margin-left: calc(-1 * var(--font-size) / 4)
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="child">
+                child one
+            </div>
+            <div class="child">
+                child two
+            </div>
+        </div>
+    </div>
+
+    <div class="box two">
+        content
+    </div>
+
+</body>
+</html>

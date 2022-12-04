@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+
+<style>
+    div{
+        width: 500px;
+        height: 500px;
+        border: 2px solid;
+        padding: 10px;
+    }
+
+    h1{
+        text-align: center;
+    }    
+
+</style>
+
+<body>
+
+    <div>
+
+<h1>To Do List</h1>
+
+    <form onsubmit="handleSumbit(event)">
+        <!-- <form onsubmit="handleSumbit()"> -->
+        <label >Task name</label>
+        <input placeholder="task name" name="task_name" />
+        <input type="submit" value="add text" />
+    </form> 
+
+    <h1>Task list</h1>
+    <ul id="task-list">
+    </ul>
+
+</div>
+
+    <script>
+        let arr = [] 
+
+        let tasks = JSON.parse(localStorage.getItem("tasks"))
+        
+        if(tasks)
+        {
+            arr = tasks
+            render();
+        }
+
+        console.log({arr})
+
+        function render() {
+            
+            let str = ""
+
+            arr.forEach((el, index) => {
+                str += `<li>${el}<button onclick="removeTask(${index})">delete</button></li>`
+            })
+
+            document.getElementById("task-list").innerHTML = str
+
+            localStorage.setItem("tasks",JSON.stringify(arr))
+
+        }
+
+        function removeTask(index) {
+            // remove the selected element from arr 
+            // re-render  || re-create the <ul>list
+
+            arr =  arr.filter((el,i) => i != index)
+
+            render();
+
+            // let str = ""
+
+            // arr.forEach((el, index) => {
+            //     str += `<li>${el}<button onclick="removeTask(${index})">delete</button></li>`
+            // })
+
+            // document.getElementById("task-list").innerHTML = str
+
+        }
+
+        function handleSumbit(event) {
+            event.preventDefault()
+
+            arr.push(event.target.task_name.value)
+            event.target.task_name.value = ""
+
+            console.log({ arr });
+
+            // let str = ""
+
+            // arr.forEach((el, index) => {
+            //     str += `<li>${el}<button onclick="removeTask(${index})">delete</button></li>`
+            // })
+
+            // document.getElementById("task-list").innerHTML = str
+
+            render();
+
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>table {
+        /* border: 1px solid red; */
+        border: 1px solid;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        border: 1px solid;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        /* padding: top right bottom left; */
+        padding: 5px 10px 5px 10px;
+
+
+    }</style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>product</th>
+                <th>quantity</th>
+                <th>price</th>
+                <th>gross</th>
+            </tr>
+        </thead>
+        <tbody id="t-body">
+
+            <tr>
+                <td>laptop</td>
+                <td>2</td>
+                <td>10</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>mobile</td>
+                <td>2</td>
+                <td>10</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td colspan="3">total</td>
+                <!-- <td colspan="3"><table>
+                    <tr>
+                        <th>one</th>
+                        <th>one</th>
+                    </tr>
+                </table>
+            </td> -->
+                <td> rs. 400</td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+</html>
